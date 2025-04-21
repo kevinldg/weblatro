@@ -6,7 +6,7 @@ export default function CardsPanel() {
 
     return (
         <div className="row-span-1 bg-green-400 p-4">
-            <ul className="flex gap-4 h-full">
+            <ul className="flex justify-around items-center h-full gap-4">
                 {cardsInHand.map((card, index) => (
                     <Card key={index} card={card}/>
                 ))}

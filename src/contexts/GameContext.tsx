@@ -4,15 +4,18 @@ import {Card} from "../types/Card.ts";
 interface GameContextType {
     cardsInHand: Card[];
     setCardsInHand: Dispatch<SetStateAction<Card[]>>;
+    selectedCards: Card[];
+    setSelectedCards: Dispatch<SetStateAction<Card[]>>;
 }
 
 export const GameContext = createContext<GameContextType | undefined>(undefined);
 
 export const GameProvider = ({children}: {children: ReactNode}) => {
     const [cardsInHand, setCardsInHand] = useState<Card[]>([]);
+    const [selectedCards, setSelectedCards] = useState<Card[]>([]);
 
     return (
-        <GameContext.Provider value={{cardsInHand, setCardsInHand}}>
+        <GameContext.Provider value={{cardsInHand, setCardsInHand, selectedCards, setSelectedCards}}>
             {children}
         </GameContext.Provider>
     );

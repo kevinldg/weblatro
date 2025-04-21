@@ -1,5 +1,5 @@
 export type Card = {
     cardType: string;
-    cardValue: string;
+    cardValue: number;
     cardId: string;
 };

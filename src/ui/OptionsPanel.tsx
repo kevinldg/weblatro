@@ -1,7 +1,17 @@
+import PlayButton from "../components/PlayButton.tsx";
+import {useGameContext} from "../hooks/useGameContext.tsx";
+import ResetButton from "../components/ResetButton.tsx";
+
 export default function OptionsPanel() {
+    const { score } = useGameContext();
+
     return (
-        <div className="col-span-1 bg-red-400 p-4">
-            <p>Options Panel</p>
+        <div className="col-span-1 bg-red-400 text-white p-4 relative">
+            <p className="text-xl">Score: {score}</p>
+            <div className="flex items-center gap-4 absolute bottom-4">
+                <PlayButton />
+                <ResetButton />
+            </div>
         </div>
     );
 }

@@ -1,5 +1,6 @@
 import type { Card as CardType } from "../types/Card.ts";
 import {useGameContext} from "../hooks/useGameContext.tsx";
+import {useEffect, useState} from "react";
 
 interface CardProps {
     card: CardType;
@@ -7,6 +8,12 @@ interface CardProps {
 
 export default function Card({ card }: CardProps) {
     const { selectedCards, setSelectedCards } = useGameContext();
+    const [isSelected, setIsSelected] = useState<boolean>(false);
+
+    useEffect(() => {
+        const isCardSelected = selectedCards.some(selected => selected.cardId === card.cardId);
+        setIsSelected(isCardSelected);
+    }, [selectedCards]);
 
     const handleClick = () => {
         if (selectedCards.some(selected => selected.cardId === card.cardId)) {
@@ -23,8 +30,6 @@ export default function Card({ card }: CardProps) {
 
         setSelectedCards(prevSelected => [...prevSelected, card]);
     };
-
-    const isSelected = selectedCards.some(selected => selected.cardId === card.cardId);
 
     return (
         <li

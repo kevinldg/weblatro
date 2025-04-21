@@ -9,15 +9,15 @@ export default function Card({ card }: CardProps) {
     const { selectedCards, setSelectedCards } = useGameContext();
 
     const handleClick = () => {
-        if (selectedCards.length === 5) {
-            console.error("You can only play 5 cards per hand");
-            return;
-        }
-
         if (selectedCards.some(selected => selected.cardId === card.cardId)) {
             setSelectedCards(prevSelected =>
                 prevSelected.filter(selected => selected.cardId !== card.cardId)
             );
+            return;
+        }
+
+        if (selectedCards.length === 5) {
+            console.error("You can only play 5 cards per hand");
             return;
         }
 

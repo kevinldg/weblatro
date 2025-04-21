@@ -24,9 +24,13 @@ export default function Card({ card }: CardProps) {
         setSelectedCards(prevSelected => [...prevSelected, card]);
     };
 
+    const isSelected = selectedCards.some(selected => selected.cardId === card.cardId);
+
     return (
         <li
-            className="border border-black rounded bg-white flex justify-center items-center p-4 relative size-32 hover:bg-neutral-200 hover:cursor-pointer"
+            className={`border-2 rounded bg-white flex justify-center items-center p-4 relative size-32 hover:bg-neutral-200 hover:cursor-pointer ${
+                isSelected ? "border-blue-500 text-blue-500" : "border-black"
+            }`}
             onClick={handleClick}
         >
             <p className="absolute top-4 right-4">{card.cardValue}</p>

@@ -5,10 +5,26 @@ export default function PlayButton() {
     const { setScore, selectedCards, setSelectedCards, setCardsInHand } = useGameContext();
 
     const handleClick = () => {
-        const scoredPoints = selectedCards.reduce(
+        const frequency = selectedCards.reduce((acc, card) => {
+            acc[card.cardValue] = (acc[card.cardValue] || 0) + 1;
+            return acc;
+        }, {} as Record<number, number>);
+
+        const pairs = Object.values(frequency).filter(count => count === 2).length;
+        let multiplier = 1;
+        if (pairs === 1) {
+            multiplier = 2;
+        } else if (pairs === 2) {
+            multiplier = 3;
+        }
+
+        const basePoints = selectedCards.reduce(
             (total, card) => total + card.cardValue,
             0
         );
+
+        const scoredPoints = basePoints * multiplier;
+
         setScore(prevScore => prevScore + scoredPoints);
         setSelectedCards([]);
 

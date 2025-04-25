@@ -6,7 +6,7 @@ export default function OptionsPanel() {
     const { score } = useGameContext();
 
     return (
-        <div className="col-span-1 bg-red-400 text-white p-4 relative">
+        <div className="col-span-1 bg-neutral-700 text-white p-4 relative">
             <p className="text-xl">Score: {score}</p>
             <div className="flex items-center gap-4 absolute bottom-4">
                 <PlayButton />

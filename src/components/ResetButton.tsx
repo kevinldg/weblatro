@@ -15,7 +15,7 @@ export default function ResetButton() {
 
     return (
         <button
-            className="bg-red-500 text-white text-xl font-bold px-8 py-1 rounded hover:bg-red-600 hover:cursor-pointer"
+            className="bg-red-500 text-white text-xl font-bold px-4 py-1 rounded hover:bg-red-600 hover:cursor-pointer"
             onClick={handleClick}
         >Reset</button>
     );

@@ -35,7 +35,7 @@ export default function PlayButton() {
 
     return (
         <button
-            className="bg-blue-500 text-white text-xl font-bold px-8 py-1 rounded hover:bg-blue-600 hover:cursor-pointer"
+            className="bg-blue-500 text-white text-xl font-bold px-4 py-1 rounded hover:bg-blue-600 hover:cursor-pointer"
             onClick={handleClick}
         >Play</button>
     );

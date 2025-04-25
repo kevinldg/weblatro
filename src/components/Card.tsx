@@ -57,7 +57,7 @@ export default function Card({ card }: CardProps) {
 
     return (
         <li
-            className={`rounded bg-neutral-100 flex justify-center items-center p-4 relative w-36 h-48 transition-transform hover:rotate-6 hover:cursor-pointer 
+            className={`rounded bg-neutral-100 flex justify-center items-center p-4 relative w-36 h-48 transition-transform shadow-lg shadow-black hover:rotate-6 hover:cursor-pointer 
             ${cardColor() === "red" ? "text-red-600" : cardColor() === "orange" && "text-orange-400"}
             `}
             onClick={handleClick}
